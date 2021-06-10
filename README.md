@@ -13,4 +13,3 @@
 >  ```
 > ✅️ 마우스를 쓰지말자! ~~mx master 3 중고로 팔았다~~ 단축키 조합으로 마우스 커서이동 및 좌우클릭 대체.  
 > ◻️ btt에 설정해놨던 단축키 hammerspoon으로 migration.  
-> Do not look in the (green)box.
