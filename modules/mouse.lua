@@ -3,48 +3,61 @@
 --]]
 local scale = 5 -- 기본 이동거리
 function move_mouse_left_up()
-    pos = hs.mouse.getRelativePosition()
+    local pos = hs.mouse.getRelativePosition()
     pos["x"] = pos["x"] - math.sqrt(scale*scale/2)
     pos["y"] = pos["y"] - math.sqrt(scale*scale/2) 
     hs.mouse.setRelativePosition(pos)
 end
 function move_mouse_left()
-    pos = hs.mouse.getRelativePosition()
+    local pos = hs.mouse.getRelativePosition()
     pos["x"] = pos["x"] - scale
     hs.mouse.setRelativePosition(pos)
 end
 function move_mouse_left_down()
-    pos = hs.mouse.getRelativePosition()
+    local pos = hs.mouse.getRelativePosition()
     pos["x"] = pos["x"] - math.sqrt(scale*scale/2)
     pos["y"] = pos["y"] + math.sqrt(scale*scale/2)
     hs.mouse.setRelativePosition(pos)
 end
 function move_mouse_up()
-    pos = hs.mouse.getRelativePosition()
+    local pos = hs.mouse.getRelativePosition()
     pos["y"] = pos["y"] - scale
     hs.mouse.setRelativePosition(pos)
 end
 function move_mouse_right_up()
-    pos = hs.mouse.getRelativePosition()
+    local pos = hs.mouse.getRelativePosition()
     pos["x"] = pos["x"] + math.sqrt(scale*scale/2) 
     pos["y"] = pos["y"] - math.sqrt(scale*scale/2) 
     hs.mouse.setRelativePosition(pos)
 end
 function move_mouse_right()
-    pos = hs.mouse.getRelativePosition()
+    local pos = hs.mouse.getRelativePosition()
     pos["x"] = pos["x"] + scale
     hs.mouse.setRelativePosition(pos)
 end
 function move_mouse_right_down()
-    pos = hs.mouse.getRelativePosition()
+    local pos = hs.mouse.getRelativePosition()
     pos["x"] = pos["x"] + math.sqrt(scale*scale/2)
     pos["y"] = pos["y"] + math.sqrt(scale*scale/2)
     hs.mouse.setRelativePosition(pos)
 end
 function move_mouse_down()
-    pos = hs.mouse.getRelativePosition()
+    local pos = hs.mouse.getRelativePosition()
     pos["y"] = pos["y"] + scale
     hs.mouse.setRelativePosition(pos)
+end
+function move_mouse_center()
+    local screen = hs.mouse.getCurrentScreen()
+    local rect = screen:fullFrame()
+    local center = hs.geometry.rectMidPoint(rect)
+    hs.mouse.absolutePosition(center)
+end
+function move_mouse_next_monitor_center()
+    local screen = hs.mouse.getCurrentScreen()
+    local nextScreen = screen:next()
+    local rect = nextScreen:fullFrame()
+    local center = hs.geometry.rectMidPoint(rect)
+    hs.mouse.absolutePosition(center)
 end
 function mouse_left_click()
     hs.eventtap.leftClick(hs.mouse.absolutePosition())
@@ -56,7 +69,6 @@ end
  방향이동 단축키 눌렀을때 이동하는 거리 토글 5 <-> 100
 --]]
 function toggle_mouse_scale()
-    print(scale)
     if scale == 5 then
         scale = 100
     else
@@ -73,4 +85,6 @@ hs.hotkey.bind({'⌃', '⇧', '⌘'}, 'l', move_mouse_right, nil, move_mouse_rig
 hs.hotkey.bind({'⌃', '⇧', '⌘'}, '.', move_mouse_right_down, nil, move_mouse_right_down)
 hs.hotkey.bind({'⌃', '⇧', '⌘'}, 'k', mouse_left_click, nil, mouse_left_click)
 hs.hotkey.bind({'⌃', '⇧', '⌘'}, ';', mouse_right_click, nil, mouse_right_click)
-hs.hotkey.bind({'⌃', '⇧', '⌘'}, '/', toggle_mouse_scale, nil, toggle_mouse_scale())
+hs.hotkey.bind({'⌃', '⇧', '⌘'}, '/', toggle_mouse_scale, nil, toggle_mouse_scale)
+hs.hotkey.bind({'⌃', '⇧', '⌘'}, 'h', move_mouse_center, nil, move_mouse_center)
+hs.hotkey.bind({'⌃', '⇧', '⌘'}, 'g', move_mouse_next_monitor_center, nil, move_mouse_next_monitor_center)
