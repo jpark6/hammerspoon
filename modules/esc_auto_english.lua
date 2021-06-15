@@ -1,5 +1,5 @@
 --[[
- `C-c`, `C-[`, ESC 입력시 입력소스 영어로 전환(이미 영어일겅우 제외)
+ `C-[`, ESC 입력시 입력소스 영어로 전환(이미 영어일겅우 제외)
 --]]
 function input_eng_and_esc()
   local input_english = "com.apple.keylayout.ABC"
@@ -11,5 +11,4 @@ function input_eng_and_esc()
 end
 
 hs.hotkey.bind({'⌃'}, 33, input_eng_and_esc)
-hs.hotkey.bind({'⌃'}, 'c', input_eng_and_esc)
 hs.hotkey.bind({}, 'F13', input_eng_and_esc)
