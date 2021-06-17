@@ -1,7 +1,7 @@
 --[[ 
 키보드 조합 입력시 마우스 커서 이동
 --]]
-local scale = 5 -- 기본 이동거리
+local scale = 7 -- 기본 이동거리
 function move_mouse_left_up()
     local pos = hs.mouse.getRelativePosition()
     pos["x"] = pos["x"] - math.sqrt(scale*scale/2)
@@ -66,13 +66,13 @@ function mouse_right_click()
     hs.eventtap.rightClick(hs.mouse.absolutePosition())
 end
 --[[
- 방향이동 단축키 눌렀을때 이동하는 거리 토글 5 <-> 100
+ 방향이동 단축키 눌렀을때 이동하는 거리 토글 7 <-> 100
 --]]
 function toggle_mouse_scale()
-    if scale == 5 then
+    if scale == 7 then
         scale = 100
     else
-        scale = 5 
+        scale = 7
     end
 end
 hs.hotkey.bind({'⌃', '⇧', '⌘'}, 'u', move_mouse_left_up, nil, move_mouse_left_up)
