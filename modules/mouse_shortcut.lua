@@ -28,6 +28,7 @@ function move_mouse_next_monitor_center()
     local rect = nextScreen:fullFrame()
     local center = hs.geometry.rectMidPoint(rect)
     hs.mouse.absolutePosition(center)
+end
 
 --[[ 
 마우스 왼쪽 버튼 클릭
