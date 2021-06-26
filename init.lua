@@ -6,4 +6,6 @@ require('modules.esc_auto_english')
 require('modules.input_source_alert')
 -- Mouse Move
 require('modules.mouse_shortcut')
+-- Keyboard Shortkut
+require('modules.keyboard_shortcut')
 
