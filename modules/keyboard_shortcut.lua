@@ -1,29 +1,30 @@
+-- Hammerspoon Reload Start
+hs.hotkey.bind({'⌥','⌘'}, 'r', hs.reload)
+-- Hammerspoon Reload End
+
+-- Hammerspoon windowHints Start
+hs.hints.hintChars = {'1','2','3','4','Q','W','E','R','T','A','S','D','F'}
+hs.hotkey.bind({'⌥','⇧'}, 'w', hs.hints.windowHints)
+-- Hammerspoon windowHints End
+
 --[[
-  Application 열기
+    ⌃ ⌘ ⌥ + [HJKL] 방향키
 --]]
-function openApp(appName)
-    hs.application.launchOrFocus(appName)
+function bindArrowKey(key)
+    local arrow_key = {
+        h = 'left',
+        j = 'down',
+        k = 'up',
+        l = 'right',
+    }
+    return function()
+        hs.eventtap.keyStroke({}, arrow_key[key])
+    end
 end
 
-hs.hotkey.bind({'⌥','⌘'}, 'r', hs.reload)
--- OpenApps Start
-hs.hotkey.bind({'⌃', '⌘'}, 'c', function() openApp('Google Chrome') end )
-hs.hotkey.bind({'⌃', '⌘'}, 'd', function() openApp('DataGrip') end )
-hs.hotkey.bind({'⌃', '⌘'}, 'f', function() openApp('Firefox') end )
-hs.hotkey.bind({'⌃', '⌘'}, 'g', function() openApp('GitKraken') end )
-hs.hotkey.bind({'⌃', '⌘'}, 'j', function() openApp('IntelliJ IDEA Ultimate') end )
-hs.hotkey.bind({'⌃', '⌘'}, 'k', function() openApp('KakaoTalk') end )
-hs.hotkey.bind({'⌃', '⌘'}, 'm', function() openApp('Messages') end )
-hs.hotkey.bind({'⌃', '⌘'}, 'n', function() openApp('Notion') end )
-hs.hotkey.bind({'⌃', '⌘'}, 'p', function() openApp('PyCharm Professional') end )
-hs.hotkey.bind({'⌃', '⌘'}, 's', function() openApp('Safari') end )
-hs.hotkey.bind({'⌃', '⌘'}, 't', function() openApp('iTerm') end )
-hs.hotkey.bind({'⌃', '⌘'}, 'v', function() openApp('Visual Studio Code') end )
-hs.hotkey.bind({'⌃', '⌘'}, 'w', function() openApp('WebStorm') end )
-hs.hotkey.bind({'⌃', '⌘'}, 'x', function() openApp('Xcode') end )
-hs.hotkey.bind({'⌃', '⌘'}, 'y', function() openApp('YT Music') end )
-
-hs.hotkey.bind({'⌃', '⌥'}, 'z', function() openApp('System Preferences') end )
-hs.hotkey.bind({'⌃', '⌘'}, '[', function() openApp('Trello') end )
-hs.hotkey.bind({'⌃', '⌘'}, ']', function() openApp('Millie') end )
--- OpenApps End
+-- 방향키 단축키 Start
+hs.hotkey.bind({'⌃', '⌘', '⌥'} ,'H', bindArrowKey('h'), nil, bindArrowKey('h'))
+hs.hotkey.bind({'⌃', '⌘', '⌥'} ,'J', bindArrowKey('j'), nil, bindArrowKey('j'))
+hs.hotkey.bind({'⌃', '⌘', '⌥'} ,'K', bindArrowKey('k'), nil, bindArrowKey('k'))
+hs.hotkey.bind({'⌃', '⌘', '⌥'} ,'L', bindArrowKey('l'), nil, bindArrowKey('l'))
+-- 방향키 단축키 End
