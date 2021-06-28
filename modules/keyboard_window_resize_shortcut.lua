@@ -24,8 +24,18 @@ function resize_window(left, top, width, height)
         frame.y = screen.y + screen.h * top
         frame.w = screen.w * width
         frame.h = screen.h * height
-        
+
         window:setFrame(frame)
+    end
+end
+
+--[[
+    전체화면 토글
+--]]
+function toggleFullScreen()
+    local window = hs.window.focusedWindow()
+    if window ~= nil then
+        window:setFullScreen(not window:isFullScreen())
     end
 end
 
@@ -50,4 +60,5 @@ hs.hotkey.bind({'⌥','⇧'}, ',', resize_window( 0,.5, 1,.5))
 hs.hotkey.bind({'⌥','⇧'}, 'O', resize_window(.5, 0,.5,.5))
 hs.hotkey.bind({'⌥','⇧'}, 'L', resize_window(.5, 0,.5, 1))
 hs.hotkey.bind({'⌥','⇧'}, '.', resize_window(.5,.5,.5,.5))
+hs.hotkey.bind({'⌥','⇧'}, ';', toggleFullScreen)
 -- 현재 윈도우 창 크기 조절 단축키 End
