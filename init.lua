@@ -7,7 +7,7 @@ require('modules.mouse_shortcut')
 -- 키보드 단축키
 require('modules.keyboard_shortcut')
 -- 키보드 앱 열기 단축키
-require('modules.keyboard_open_apps_shortcut')
+require('modules.open_apps_shortcut')
 -- 키보드 창 크기 조절 단축키
-require('modules.keyboard_window_resize_shortcut')
+require('modules.window_shortcut')
 

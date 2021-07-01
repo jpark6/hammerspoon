@@ -26,6 +26,7 @@ hs.hotkey.bind({'⌃', '⌘'}, 'Y', openApp('YT Music'))
 hs.hotkey.bind({'⌃', '⌘'}, 'Z', openApp('System Preferences'))
 hs.hotkey.bind({'⌃', '⌘'}, '[', openApp('Trello'))
 hs.hotkey.bind({'⌃', '⌘'}, ']', openApp('Millie'))
+hs.hotkey.bind({'⌃', '⌘'}, ';', openApp('Spark'))
 
 hs.hotkey.bind({'⌃', '⇧'}, 'F13', openApp('Activity Monitor'))
 -- OpenApps End
