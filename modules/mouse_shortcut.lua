@@ -30,13 +30,20 @@ function move_mouse_next_monitor_center()
     hs.mouse.absolutePosition(center)
 end
 
---[[ 
+--[[
 마우스 왼쪽 버튼 클릭
 --]]
 function mouse_left_click()
     hs.eventtap.leftClick(hs.mouse.absolutePosition())
 end
---
+
+--[[
+마우스 가운데 버튼 클릭
+--]]
+function mouse_middle_click()
+    hs.eventtap.middleClick(hs.mouse.absolutePosition())
+end
+
 --[[ 
 마우스 오른쪽 버튼 클릭
 --]]
@@ -56,19 +63,20 @@ function toggle_mouse_scale()
 end
 
 -- 마우스 방향이동 Start
-hs.hotkey.bind({'⌃', '⇧', '⌘'}, 'u', function() move_mouse(-1, -1) end , nil, function() move_mouse(-1, -1) end )
-hs.hotkey.bind({'⌃', '⇧', '⌘'}, 'j', function() move_mouse(-1,  0) end , nil, function() move_mouse(-1,  0) end )
-hs.hotkey.bind({'⌃', '⇧', '⌘'}, 'm', function() move_mouse(-1,  1) end , nil, function() move_mouse(-1,  1) end )
-hs.hotkey.bind({'⌃', '⇧', '⌘'}, 'i', function() move_mouse( 0, -1) end , nil, function() move_mouse( 0, -1) end )
-hs.hotkey.bind({'⌃', '⇧', '⌘'}, ',', function() move_mouse( 0,  1) end , nil, function() move_mouse( 0,  1) end )
-hs.hotkey.bind({'⌃', '⇧', '⌘'}, 'o', function() move_mouse( 1, -1) end , nil, function() move_mouse( 1, -1) end )
-hs.hotkey.bind({'⌃', '⇧', '⌘'}, 'l', function() move_mouse( 1,  0) end , nil, function() move_mouse( 1,  0) end )
-hs.hotkey.bind({'⌃', '⇧', '⌘'}, '.', function() move_mouse( 1,  1) end , nil, function() move_mouse( 1,  1) end )
+hs.hotkey.bind({'⌃', '⇧', '⌥'}, 'u', function() move_mouse(-1, -1) end , nil, function() move_mouse(-1, -1) end )
+hs.hotkey.bind({'⌃', '⇧', '⌥'}, 'j', function() move_mouse(-1,  0) end , nil, function() move_mouse(-1,  0) end )
+hs.hotkey.bind({'⌃', '⇧', '⌥'}, 'm', function() move_mouse(-1,  1) end , nil, function() move_mouse(-1,  1) end )
+hs.hotkey.bind({'⌃', '⇧', '⌥'}, 'i', function() move_mouse( 0, -1) end , nil, function() move_mouse( 0, -1) end )
+hs.hotkey.bind({'⌃', '⇧', '⌥'}, ',', function() move_mouse( 0,  1) end , nil, function() move_mouse( 0,  1) end )
+hs.hotkey.bind({'⌃', '⇧', '⌥'}, 'o', function() move_mouse( 1, -1) end , nil, function() move_mouse( 1, -1) end )
+hs.hotkey.bind({'⌃', '⇧', '⌥'}, 'l', function() move_mouse( 1,  0) end , nil, function() move_mouse( 1,  0) end )
+hs.hotkey.bind({'⌃', '⇧', '⌥'}, '.', function() move_mouse( 1,  1) end , nil, function() move_mouse( 1,  1) end )
 -- 마우스 방향이동 End
 
 
-hs.hotkey.bind({'⌃', '⇧', '⌘'}, 'k', mouse_left_click, nil, mouse_left_click)
-hs.hotkey.bind({'⌃', '⇧', '⌘'}, ';', mouse_right_click, nil, mouse_right_click)
-hs.hotkey.bind({'⌃', '⇧', '⌘'}, '/', toggle_mouse_scale, nil, toggle_mouse_scale)
-hs.hotkey.bind({'⌃', '⇧', '⌘'}, 'h', move_mouse_center, nil, move_mouse_center)
-hs.hotkey.bind({'⌃', '⇧', '⌘'}, 'g', move_mouse_next_monitor_center, nil, move_mouse_next_monitor_center)
+--[[마우스 왼쪽 버튼   클릭]] hs.hotkey.bind({'⌃', '⇧', '⌥'}, 'k', mouse_left_click, nil, mouse_left_click)
+--[[마우스 오른쪽 버튼 클릭]] hs.hotkey.bind({'⌃', '⇧', '⌥'}, '\'', mouse_middle_click, nil, mouse_middle_click)
+--[[마우스 가운데 버튼 클릭]] hs.hotkey.bind({'⌃', '⇧', '⌥'}, ';', mouse_right_click, nil, mouse_right_click)
+--[[마우스 이동 스케일 토글]] hs.hotkey.bind({'⌃', '⇧', '⌥'}, '/', toggle_mouse_scale, nil, toggle_mouse_scale)
+--[[마우스 현재 모니터 센터]] hs.hotkey.bind({'⌃', '⇧', '⌥'}, 'h', move_mouse_center, nil, move_mouse_center)
+--[[마우스 다음 모니터 센터]] hs.hotkey.bind({'⌃', '⇧', '⌥'}, 'g', move_mouse_next_monitor_center, nil, move_mouse_next_monitor_center)
